@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - EduVance</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">EduVance</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="peer_learning.html">Peer Learning</a></li>
+            <li><a href="internships.html">Internships</a></li>
+            <li><a href="forum.html">Forum</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="quiz.html">Quizzes</a></li>
+            <li><a href="course-detail.html">Course Details</a></li>
+            <li><a href="psych_help_center.html">Psych Help Center</a></li>
+            <li><a href="#login-modal" class="modal-trigger">Login</a></li>
+        </ul>
+    </nav>
+    
+    <section class="courses">
+        <h2>Available Courses</h2>
+        <div class="course-grid">
+            <div class="course">
+                <h3><a href="course-detail.html">Design Thinking</a></h3>
+                <p>Instructor: Sy, Jovvani</p>
+                <p>Duration: 4 weeks</p>
+                <p>Rating: ★★★★☆</p>
+                <a href="course-detail.html" class="course-btn">View Course</a>
+            </div>
+            <div class="course">
+                <h3><a href="course-detail.html">Introduction to Psychology</a></h3>
+                <p>Instructor: AJ Meehan</p>
+                <p>Duration: 6 weeks</p>
+                <p>Rating: ★★★★★</p>
+                <a href="course-detail.html" class="course-btn">View Course</a>
+            </div>
+            <div class="course">
+                <h3><a href="course-detail.html">Digital Marketing</a></h3>
+                <p>Instructor: Peter Mcokech</p>
+                <p>Duration: 8 weeks</p>
+                <p>Rating: ★★★★☆</p>
+                <a href="course-detail.html" class="course-btn">View Course</a>
+            </div>
+            <div class="course">
+                <h3><a href="course-detail.html">Programming for Beginners</a></h3>
+                <p>Instructor: Melkamu Alemu</p>
+                <p>Duration: 12 weeks</p>
+                <p>Rating: ★★★★☆</p>
+                <a href="course-detail.html" class="course-btn">View Course</a>
+            </div>
+            <div class="course">
+                <h3><a href="course-detail.html">Microeconomics</a></h3>
+                <p>Instructor: Rediet Merid</p>
+                <p>Duration: 10 weeks</p>
+                <p>Rating: ★★★★☆</p>
+                <a href="course-detail.html" class="course-btn">View Course</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Contact us: info@eduvance.com | © 2024 EduVance</p>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login</h2>
+            <form id="login-form">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Modal functionality (same as index.html)
+        const modal = document.getElementById("login-modal");
+        const btn = document.querySelector(".modal-trigger");
+        const span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

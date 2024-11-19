@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peer Learning and Study Groups - EduVance</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">EduVance</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="peer_learning.html">Peer Learning</a></li>
+            <li><a href="internships.html">Internships</a></li>
+            <li><a href="forum.html">Forum</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="quiz.html">Quizzes</a></li>
+            <li><a href="course-detail.html">Course Details</a></li>
+            <li><a href="psych_help_center.html">Psych Help Center</a></li>
+            <li><a href="#login-modal" class="modal-trigger">Login</a></li>
+        </ul>
+    </nav>
+
+    <section class="peer-learning">
+        <h2>Peer Learning and Study Groups</h2>
+
+        <!-- Arrange a Group Study Session -->
+        <div class="group-study">
+            <h3>Arrange a Study Session</h3>
+            <form>
+                <label for="subject">Subject or Course</label>
+                <input type="text" id="subject" name="subject" required>
+
+                <label for="date">Date and Time</label>
+                <input type="datetime-local" id="date" name="date" required>
+
+                <label for="participants">Participants (Add Emails)</label>
+                <input type="email" id="participants" name="participants" multiple required>
+
+                <button type="submit">Create Study Group</button>
+            </form>
+        </div>
+
+        <!-- Group Chat -->
+        <div class="group-chat">
+            <h3>Group Chat</h3>
+            <div class="chat-box">
+                <div class="message">
+                    <p><strong>Student 1:</strong> Let's study for the Design Thinking exam together!</p>
+                </div>
+                <div class="message">
+                    <p><strong>Student 2:</strong> Sure! What time works for everyone?</p>
+                </div>
+                <div class="message">
+                    <p><strong>Student 3:</strong> How about 3 PM tomorrow?</p>
+                </div>
+                <div class="message-input">
+                    <input type="text" id="chat-input" placeholder="Type your message here...">
+                    <button type="button" onclick="sendMessage()">Send</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video Call Option -->
+        <div class="video-call">
+            <h3>Join a Video Call</h3>
+            <button type="button" onclick="startVideoCall()">Start Video Call</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 EduVance</p>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login</h2>
+            <form id="login-form">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            var input = document.getElementById('chat-input');
+            var message = input.value;
+            if (message) {
+                var chatBox = document.querySelector('.chat-box');
+                var newMessage = document.createElement('div');
+                newMessage.classList.add('message');
+                newMessage.innerHTML = '<p><strong>You:</strong> ' + message + '</p>';
+                chatBox.appendChild(newMessage);
+                input.value = ''; // Clear the input field
+            }
+        }
+
+        function startVideoCall() {
+            window.open('https://zoom.us', '_blank'); // Example integration with Zoom
+        }
+
+        // Modal functionality (same as index.html)
+        const modal = document.getElementById("login-modal");
+        const btn = document.querySelector(".modal-trigger");
+        const span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
+

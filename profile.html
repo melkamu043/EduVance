@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - EduVance</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">EduVance</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="peer_learning.html">Peer Learning</a></li>
+            <li><a href="internships.html">Internships</a></li>
+            <li><a href="forum.html">Forum</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="course-detail.html">Course Detail</a></li>
+            <li><a href="psych_help_center.html">Psych Help Center</a></li>
+        </ul>
+    </nav>
+
+    <section class="profile">
+        <div class="container">
+            <h2>Profile Information</h2>
+            <p><strong>Name:</strong> [Student's Full Name]</p>
+            <p><strong>Email:</strong> [student@example.com]</p>
+
+            <section class="attendance">
+                <h3>Attendance & Bonus Points</h3>
+                <p><strong>Attendance:</strong> <span id="attendance-count">[Number of Attendance Days]</span> Days</p>
+                <p><strong>Bonus Points Earned:</strong> <span id="bonus-points">[Total Bonus Points]</span></p>
+            </section>
+
+            <section class="courses-enrolled">
+                <h3>Courses Enrolled</h3>
+                <ul>
+                    <li>Design Thinking</li>
+                    <li>Introduction to Psychology</li>
+                    <li>Digital Marketing</li>
+                    <li>Programming for Beginners</li>
+                    <li>Microeconomics</li>
+                </ul>
+            </section>
+
+            <section class="study-groups">
+                <h3>Your Peer Study Groups</h3>
+                <ul>
+                    <li>Design Thinking - Study Group on [Date]</li>
+                    <li>Psychology in Marketing - Study Group on [Date]</li>
+                </ul>
+            </section>
+        </div>
+    </section>
+
+    <footer>
+        <p>Contact us: info@eduvance.com | © 2024 EduVance</p>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login</h2>
+            <form id="login-form">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Modal functionality (same as index.html)
+        const modal = document.getElementById("login-modal");
+        const btn = document.querySelector(".modal-trigger");
+        const span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Attendance and Bonus Points (dynamically update from localStorage)
+        let attendance = localStorage.getItem('attendance') || 0;
+        let bonusPoints = localStorage.getItem('bonusPoints') || 0;
+
+        document.getElementById('attendance-count').textContent = attendance;
+        document.getElementById('bonus-points').textContent = bonusPoints;
+    </script>
+</body>
+</html>

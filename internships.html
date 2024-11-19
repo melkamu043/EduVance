@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internships - EduVance</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">EduVance</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="peer_learning.html">Peer Learning</a></li>
+            <li><a href="internships.html">Internships</a></li>
+            <li><a href="forum.html">Forum</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="course-detail.html">Course Detail</a></li>
+            <li><a href="psych_help_center.html">Psychological Help Center</a></li>
+            <li><a href="#login-modal" class="modal-trigger">Login</a></li>
+        </ul>
+    </nav>
+
+    <section class="internships">
+        <h2>Internship Opportunities</h2>
+
+        <!-- Example Internships Related to Courses -->
+        <div class="internship-list">
+            <h3>Featured Internships</h3>
+
+            <div class="internship">
+                <h4>Digital Marketing Intern - XYZ Agency</h4>
+                <p><strong>Location:</strong> Remote</p>
+                <p><strong>Duration:</strong> 3 months</p>
+                <p><strong>Description:</strong> Help create and execute digital marketing campaigns, manage social media, and analyze performance metrics.</p>
+                <a href="#">Apply Now</a>
+            </div>
+
+            <div class="internship">
+                <h4>UX Design Intern - ABC Tech</h4>
+                <p><strong>Location:</strong> New York, NY</p>
+                <p><strong>Duration:</strong> 6 months</p>
+                <p><strong>Description:</strong> Collaborate with senior designers to develop user-friendly interfaces, conduct user research, and test prototypes.</p>
+                <a href="#">Apply Now</a>
+            </div>
+
+            <div class="internship">
+                <h4>Data Science Intern - DEF Analytics</h4>
+                <p><strong>Location:</strong> San Francisco, CA</p>
+                <p><strong>Duration:</strong> 6 months</p>
+                <p><strong>Description:</strong> Work with large datasets to build predictive models, analyze trends, and assist in creating business solutions.</p>
+                <a href="#">Apply Now</a>
+            </div>
+        </div>
+
+        <!-- New Internship Sharing -->
+        <section class="share-internship">
+            <h3>Share a New Internship Opportunity</h3>
+            <form id="share-internship-form">
+                <label for="internship-title">Internship Title:</label>
+                <input type="text" id="internship-title" required>
+
+                <label for="internship-company">Company:</label>
+                <input type="text" id="internship-company" required>
+
+                <label for="internship-location">Location:</label>
+                <input type="text" id="internship-location" required>
+
+                <label for="internship-duration">Duration:</label>
+                <input type="text" id="internship-duration" required>
+
+                <label for="internship-description">Description:</label>
+                <textarea id="internship-description" required></textarea>
+
+                <button type="submit">Share Internship</button>
+            </form>
+        </section>
+
+        <!-- Networking and Student Contributions -->
+        <section class="networking">
+            <h3>Networking & Internship Sharing</h3>
+            <div id="network-posts">
+                <div class="network-post">
+                    <h4>Data Science Internship at XYZ Corp - Shared by John Smith</h4>
+                    <p><strong>Location:</strong> Remote</p>
+                    <p><strong>Description:</strong> Amazing opportunity to work with a leading analytics company. Reach out to me if you'd like to know more!</p>
+                    <div class="network-actions">
+                        <button class="connect-btn">Connect with John</button>
+                        <button class="comment-btn">Comment</button>
+                    </div>
+                    <div class="comments">
+                        <p><strong>Jane Doe:</strong> Thanks for sharing, John! I just applied for this position.</p>
+                    </div>
+                </div>
+
+                <div class="network-post">
+                    <h4>UX Design Internship at Creative Studios - Shared by Mary Johnson</h4>
+                    <p><strong>Location:</strong> San Francisco, CA</p>
+                    <p><strong>Description:</strong> Exciting UX design position with a focus on UI improvements. Happy to provide a referral if you're interested.</p>
+                    <div class="network-actions">
+                        <button class="connect-btn">Connect with Mary</button>
+                        <button class="comment-btn">Comment</button>
+                    </div>
+                    <div class="comments">
+                        <p><strong>Alex Turner:</strong> I'd love a referral! I'll DM you. Thanks for sharing!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <footer>
+        <p>Contact us: info@eduvance.com | © 2024 EduVance</p>
+    </footer>
+
+    <script>
+        // Form submission for sharing a new internship
+        document.getElementById('share-internship-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const title = document.getElementById('internship-title').value;
+            const company = document.getElementById('internship-company').value;
+            const location = document.getElementById('internship-location').value;
+            const duration = document.getElementById('internship-duration').value;
+            const description = document.getElementById('internship-description').value;
+
+            // Add new shared internship to network posts
+            const networkPostsDiv = document.getElementById('network-posts');
+            const newNetworkPost = document.createElement('div');
+            newNetworkPost.classList.add('network-post');
+            newNetworkPost.innerHTML = `
+                <h4>${title} at ${company} - Shared by Student</h4>
+                <p><strong>Location:</strong> ${location}</p>
+                <p><strong>Description:</strong> ${description}</p>
+                <div class="network-actions">
+                    <button class="connect-btn">Connect with Student</button>
+                    <button class="comment-btn">Comment</button>
+                </div>
+                <div class="comments"></div>
+            `;
+            networkPostsDiv.prepend(newNetworkPost);
+
+            // Clear form
+            document.getElementById('internship-title').value = '';
+            document.getElementById('internship-company').value = '';
+            document.getElementById('internship-location').value = '';
+            document.getElementById('internship-duration').value = '';
+            document.getElementById('internship-description').value = '';
+        });
+
+        // Networking actions (Connect and Comment)
+        document.addEventListener('click', function(event) {
+            if (event.target.classList.contains('connect-btn')) {
+                alert('Connection request sent!');
+            }
+
+            if (event.target.classList.contains('comment-btn')) {
+                const commentText = prompt("Enter your comment:");
+                if (commentText) {
+                    const commentsDiv = event.target.closest('.network-post').querySelector('.comments');
+                    const newComment = document.createElement('p');
+                    newComment.innerHTML = `<strong>You:</strong> ${commentText}`;
+                    commentsDiv.appendChild(newComment);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

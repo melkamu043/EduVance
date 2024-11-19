@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Detail - EduVance</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">EduVance</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="peer_learning.html">Peer Learning</a></li>
+            <li><a href="internships.html">Internships</a></li>
+            <li><a href="forum.html">Forum</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="course-detail.html">Course Detail</a></li>
+            <li><a href="psych_help_center.html">Psychological Help Center</a></li>
+            <li><a href="#login-modal" class="modal-trigger">Login</a></li>
+        </ul>
+    </nav>
+
+    <section class="course-detail">
+        <h2>Course Title: Design Thinking</h2>
+        <p>Instructor: Sy, Jovvani</p>
+        <p>Duration: 4 weeks</p>
+        <p>Rating: ★★★★☆</p>
+        
+        <h3>Course Overview:</h3>
+        <p>This course will cover the following topics:</p>
+        <ul>
+            <li>Empathizing with users</li>
+            <li>Defining the problem</li>
+            <li>Ideation techniques</li>
+            <li>Prototyping and testing</li>
+        </ul>
+
+        <a href="quiz.html" class="course-btn">Take Quiz</a>
+    </section>
+
+    <!-- New Course Details Section -->
+    <section class="new-courses">
+        <h2>Other Available Courses</h2>
+
+        <!-- Programming Course -->
+        <div class="course">
+            <h3>Course Title: Programming for Beginners</h3>
+            <p>Instructor: Jane Doe</p>
+            <p>Duration: 6 weeks</p>
+            <p>Rating: ★★★★★</p>
+            <p>Course Overview:</p>
+            <ul>
+                <li>Introduction to programming concepts</li>
+                <li>Writing your first program</li>
+                <li>Data structures and algorithms</li>
+                <li>Debugging and testing code</li>
+            </ul>
+            <a href="quiz.html" class="course-btn">Take Quiz</a>
+        </div>
+
+        <!-- Microeconomics Course -->
+        <div class="course">
+            <h3>Course Title: Microeconomics</h3>
+            <p>Instructor: John Smith</p>
+            <p>Duration: 5 weeks</p>
+            <p>Rating: ★★★★☆</p>
+            <p>Course Overview:</p>
+            <ul>
+                <li>Supply and demand theory</li>
+                <li>Market structures</li>
+                <li>Government intervention and regulation</li>
+                <li>Behavior of firms and consumers</li>
+            </ul>
+            <a href="quiz.html" class="course-btn">Take Quiz</a>
+        </div>
+
+        <!-- Digital Marketing Course -->
+        <div class="course">
+            <h3>Course Title: Digital Marketing</h3>
+            <p>Instructor: Sarah Lee</p>
+            <p>Duration: 8 weeks</p>
+            <p>Rating: ★★★★☆</p>
+            <p>Course Overview:</p>
+            <ul>
+                <li>Introduction to digital marketing</li>
+                <li>SEO and SEM strategies</li>
+                <li>Social media marketing</li>
+                <li>Data analytics and marketing performance</li>
+            </ul>
+            <a href="quiz.html" class="course-btn">Take Quiz</a>
+        </div>
+
+        <!-- Psychology Course -->
+        <div class="course">
+            <h3>Course Title: Introduction to Psychology</h3>
+            <p>Instructor: Michael Brown</p>
+            <p>Duration: 7 weeks</p>
+            <p>Rating: ★★★★★</p>
+            <p>Course Overview:</p>
+            <ul>
+                <li>Basic psychological concepts</li>
+                <li>Human behavior and cognition</li>
+                <li>Developmental psychology</li>
+                <li>Psychological disorders and therapies</li>
+            </ul>
+            <a href="quiz.html" class="course-btn">Take Quiz</a>
+        </div>
+
+    </section>
+
+    <footer>
+        <p>Contact us: info@eduvance.com | © 2024 EduVance</p>
+    </footer>
+
+    <script>
+        // Modal functionality
+        const modal = document.getElementById("login-modal");
+        const btn = document.querySelector(".modal-trigger");
+        const span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

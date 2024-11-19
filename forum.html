@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum - EduVance</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">EduVance</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="peer_learning.html">Peer Learning</a></li>
+            <li><a href="internships.html">Internships</a></li>
+            <li><a href="forum.html">Forum</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="quiz.html">Quizzes</a></li>
+            <li><a href="course-detail.html">Course Details</a></li>
+            <li><a href="psych_help_center.html">Psych Help Center</a></li>
+            <li><a href="#login-modal" class="modal-trigger">Login</a></li>
+        </ul>
+    </nav>
+
+    <section class="forum">
+        <h2>Student Forum</h2>
+
+        <!-- Discussion Categories -->
+        <div class="categories">
+            <button onclick="filterCategory('all')">All Discussions</button>
+            <button onclick="filterCategory('course-help')">Course Help</button>
+            <button onclick="filterCategory('general')">General Discussions</button>
+            <button onclick="filterCategory('career')">Career Advice</button>
+        </div>
+
+        <!-- Discussion Form -->
+        <section class="discussion-form">
+            <h3>Start a New Discussion</h3>
+            <form id="discussion-form">
+                <label for="discussion-title">Title:</label>
+                <input type="text" id="discussion-title" required>
+
+                <label for="discussion-category">Category:</label>
+                <select id="discussion-category">
+                    <option value="course-help">Course Help</option>
+                    <option value="general">General Discussions</option>
+                    <option value="career">Career Advice</option>
+                </select>
+
+                <label for="discussion-content">Content:</label>
+                <textarea id="discussion-content" required></textarea>
+
+                <label>
+                    <input type="checkbox" id="anonymous-post"> Post anonymously
+                </label>
+
+                <button type="submit">Post Discussion</button>
+            </form>
+        </section>
+
+        <!-- Discussions -->
+        <section id="discussions">
+            <h3>Recent Discussions</h3>
+
+            <div class="discussion" data-category="course-help">
+                <h4>How to get started with Digital Marketing?</h4>
+                <p>Posted by: <span class="posted-by">John Smith</span></p>
+                <p>I'm new to digital marketing. What are some resources to help me get started?</p>
+                <div class="discussion-actions">
+                    <button class="like-btn">👍 Like (<span class="like-count">2</span>)</button>
+                    <button class="reply-btn">Reply</button>
+                </div>
+                <div class="replies">
+                    <p><strong>Jane Doe:</strong> You can check out the beginner courses on this platform!</p>
+                </div>
+            </div>
+
+            <div class="discussion" data-category="career">
+                <h4>What are the best practices for acing a UX design interview?</h4>
+                <p>Posted by: <span class="posted-by">Mary Johnson</span></p>
+                <p>Looking for tips on preparing for UX design interviews, especially the portfolio presentation.</p>
+                <div class="discussion-actions">
+                    <button class="like-btn">👍 Like (<span class="like-count">5</span>)</button>
+                    <button class="reply-btn">Reply</button>
+                </div>
+                <div class="replies">
+                    <p><strong>Alex Turner:</strong> Make sure your portfolio highlights real-world problem-solving!</p>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <footer>
+        <p>Contact us: info@eduvance.com | © 2024 EduVance</p>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login</h2>
+            <form id="login-form">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Modal functionality
+        const modal = document.getElementById("login-modal");
+        const btn = document.querySelector(".modal-trigger");
+        const span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Form submission and discussion posting
+        document.getElementById('discussion-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const title = document.getElementById('discussion-title').value;
+            const content = document.getElementById('discussion-content').value;
+            const category = document.getElementById('discussion-category').value;
+            const anonymous = document.getElementById('anonymous-post').checked;
+
+            const postedBy = anonymous ? "Anonymous" : "Student Name"; // Example: Replace with actual user data
+
+            // Add new discussion
+            const discussionsDiv = document.getElementById('discussions');
+            const newDiscussion = document.createElement('div');
+            newDiscussion.classList.add('discussion');
+            newDiscussion.setAttribute('data-category', category);
+            newDiscussion.innerHTML = `
+                <h4>${title}</h4>
+                <p>Posted by: <span class="posted-by">${postedBy}</span></p>
+                <p>${content}</p>
+                <div class="discussion-actions">
+                    <button class="like-btn">👍 Like (<span class="like-count">0</span>)</button>
+                    <button class="reply-btn">Reply</button>
+                </div>
+                <div class="replies"></div>
+            `;
+            discussionsDiv.prepend(newDiscussion);
+
+            // Clear form
+            document.getElementById('discussion-title').value = '';
+            document.getElementById('discussion-content').value = '';
+            document.getElementById('anonymous-post').checked = false;
+        });
+
+        // Like and Reply functionality
+        document.addEventListener('click', function(event) {
+            if (event.target.classList.contains('like-btn')) {
+                const likeCountSpan = event.target.querySelector('.like-count');
+                let currentCount = parseInt(likeCountSpan.textContent);
+                likeCountSpan.textContent = currentCount + 1;
+            }
+
+            if (event.target.classList.contains('reply-btn')) {
+                const replyText = prompt("Enter your reply:");
+                if (replyText) {
+                    const repliesDiv = event.target.closest('.discussion').querySelector('.replies');
+                    const newReply = document.createElement('p');
+                    newReply.innerHTML = `<strong>You:</strong> ${replyText}`;
+                    repliesDiv.appendChild(newReply);
+                }
+            }
+        });
+
+        // Category filter
+        function filterCategory(category) {
+            const discussions = document.querySelectorAll('.discussion');
+            discussions.forEach(discussion => {
+                if (category === 'all' || discussion.getAttribute('data-category') === category) {
+                    discussion.style.display = 'block';
+                } else {
+                    discussion.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

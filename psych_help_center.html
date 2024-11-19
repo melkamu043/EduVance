@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psychological Help Center</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your global stylesheet if needed -->
+    <style>
+        /* Main Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+        }
+
+        header .logo a {
+            font-size: 24px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav ul li a:hover, .active {
+            text-decoration: underline;
+        }
+
+        main {
+            padding: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #333;
+        }
+
+        .dropdown-container {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .dropdown-container select {
+            padding: 12px;
+            width: 100%;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        .solution-area {
+            margin-top: 20px;
+        }
+
+        .solution-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header and Navigation -->
+    <header>
+        <div class="logo">
+            <a href="index.html">EduVance</a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="peer_learning.html">Peer Learning</a></li>
+                <li><a href="internships.html">Internships</a></li>
+                <li><a href="forum.html">Forum</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="course-detail.html">Course Detail</a></li>
+                <li><a href="psych_help_center.html">Psychological Help Center</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <div class="container">
+            <h2>Psychological Help Center</h2>
+            <p>We understand that mental well-being is crucial. If you’re experiencing challenges, we’re here to provide suggestions and guidance to help you manage various psychological concerns.</p>
+
+            <div class="dropdown-container">
+                <label for="problem-select">Select a psychological problem:</label>
+                <select id="problem-select">
+                    <option value="">--Select a Problem--</option>
+                    <option value="anxiety">Anxiety</option>
+                    <option value="depression">Depression</option>
+                    <option value="stress">Stress</option>
+                    <option value="low_self_esteem">Low Self-Esteem</option>
+                    <option value="anger_management">Anger Management</option>
+                    <option value="social_anxiety">Social Anxiety</option>
+                    <option value="grief">Grief and Loss</option>
+                    <option value="relationship_issues">Relationship Issues</option>
+                    <option value="procrastination">Procrastination</option>
+                    <option value="perfectionism">Perfectionism</option>
+                    <option value="loneliness">Loneliness</option>
+                    <option value="sleep_issues">Sleep Issues</option>
+                    <option value="lack_of_motivation">Lack of Motivation</option>
+                    <option value="addiction">Addiction</option>
+                    <option value="burnout">Burnout</option>
+                    <option value="trauma">Trauma</option>
+                </select>
+                <button class="btn" onclick="suggestSolution()">Get Solution</button>
+            </div>
+
+            <!-- Solution Area -->
+            <div id="solution" class="solution-area">
+                <!-- Solution will appear here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>Contact us: info@eduvance.com | © 2024 EduVance</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        function suggestSolution() {
+            const problem = document.getElementById("problem-select").value;
+            const solutionDiv = document.getElementById("solution");
+
+            let solution = "";
+
+            switch(problem) {
+                case "anxiety":
+                    solution = `
+                        <div class="solution-title">Solution for Anxiety</div>
+                        Try relaxation techniques like deep breathing and mindfulness meditation. 
+                        Exercise regularly, avoid caffeine, and keep a journal to identify triggers. 
+                        Seeking therapy, such as cognitive-behavioral therapy (CBT), can also help manage anxiety effectively.
+                    `;
+                    break;
+                case "depression":
+                    solution = `
+                        <div class="solution-title">Solution for Depression</div>
+                        Maintain a daily routine, engage in physical activity, and connect with friends or family for support. 
+                        Try setting small goals and avoid isolation. Therapy and, if necessary, medication under medical guidance can provide significant relief.
+                    `;
+                    break;
+                case "stress":
+                    solution = `
+                        <div class="solution-title">Solution for Stress</div>
+                        Use time management tools to prioritize tasks and take regular breaks. 
+                        Practice relaxation techniques like yoga, meditation, and journaling. Talking to a counselor can help you develop personalized coping strategies.
+                    `;
+                    break;
+                case "low_self_esteem":
+                    solution = `
+                        <div class="solution-title">Solution for Low Self-Esteem</div>
+                        Challenge negative self-perceptions, set achievable goals, and practice self-compassion. 
+                        Focus on building skills and surround yourself with supportive people. Therapy can also aid in boosting self-esteem.
+                    `;
+                    break;
+                case "anger_management":
+                    solution = `
+                        <div class="solution-title">Solution for Anger Management</div>
+                        Practice deep breathing and counting to ten before reacting. Take time-outs and find healthy outlets like exercise. 
+                        Anger management therapy can provide tools to handle triggers and express anger constructively.
+                    `;
+                    break;
+                case "social_anxiety":
+                    solution = `
+                        <div class="solution-title">Solution for Social Anxiety</div>
+                        Start with small social interactions and gradually increase exposure. Focus on positive self-talk and breathing exercises. 
+                        Social skills training and cognitive-behavioral therapy (CBT) are effective for managing social anxiety.
+                    `;
+                    break;
+                case "grief":
+                    solution = `
+                        <div class="solution-title">Solution for Grief and Loss</div>
+                        Allow yourself to grieve, and remember that it takes time. Talk to friends or family, or consider joining a support group. 
+                        Grief counseling can provide support and help in the healing process.
+                    `;
+                    break;
+                case "relationship_issues":
+                    solution = `
+                        <div class="solution-title">Solution for Relationship Issues</div>
+                        Focus on open communication, active listening, and empathy. Setting boundaries and understanding each other’s needs can improve relationships. 
+                        Couples therapy can provide a safe space for addressing deeper issues.
+                    `;
+                    break;
+                case "procrastination":
+                    solution = `
+                        <div class="solution-title">Solution for Procrastination</div>
+                        Break tasks into smaller parts, and set specific goals with deadlines. Eliminate distractions, and reward yourself for completing tasks. 
+                        Cognitive-behavioral strategies can help overcome procrastination habits.
+                    `;
+                    break;
+                case "perfectionism":
+                    solution = `
+                        <div class="solution-title">Solution for Perfectionism</div>
+                        Focus on progress, not perfection. Set realistic goals, and allow for mistakes. Embrace imperfection and practice self-compassion. 
+                        Therapy can help in challenging perfectionistic beliefs.
+                    `;
+                    break;
+                case "loneliness":
+                    solution = `
+                        <div class="solution-title">Solution for Loneliness</div>
+                        Build connections by reaching out to friends and family, or consider joining groups or communities. 
+                        Volunteering can also provide a sense of purpose and connection. Therapy can help you cope with feelings of isolation.
+                    `;
+                    break;
+                case "sleep_issues":
+                    solution = `
+                        <div class="solution-title">Solution for Sleep Issues</div>
+                        Create a relaxing bedtime routine, avoid caffeine and electronics before bed, and establish a regular sleep schedule. 
+                        If problems persist, consult a healthcare provider or consider cognitive-behavioral therapy for insomnia.
+                    `;
+                    break;
+                case "lack_of_motivation":
+                    solution = `
+                        <div class="solution-title">Solution for Lack of Motivation</div>
+                        Set small, achievable goals, and celebrate progress. Break tasks into smaller, manageable parts. 
+                        Building a support system can help keep you motivated.
+                    `;
+                    break;
+                case "addiction":
+                    solution = `
+                        <div class="solution-title">Solution for Addiction</div>
+                        Seek professional help such as therapy or support groups. Developing healthier coping mechanisms and avoiding triggers can aid in recovery. 
+                        Reach out to loved ones for support.
+                    `;
+                    break;
+                case "burnout":
+                    solution = `
+                        <div class="solution-title">Solution for Burnout</div>
+                        Take regular breaks, practice self-care, and avoid overcommitting. 
+                        Therapy and time management techniques can help you recover from burnout.
+                    `;
+                    break;
+                case "trauma":
+                    solution = `
+                        <div class="solution-title">Solution for Trauma</div>
+                        Seek therapy, especially trauma-informed care, to help process emotions and rebuild a sense of safety. 
+                        Self-care practices like mindfulness can also aid in managing trauma responses.
+                    `;
+                    break;
+                default:
+                    solution = "<p>Please select a psychological problem to get a solution.</p>";
+                    break;
+            }
+
+            solutionDiv.innerHTML = solution;
+        }
+    </script>
+</body>
+</html>
